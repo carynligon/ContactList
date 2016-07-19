@@ -6,11 +6,6 @@ import _ from 'underscore';
 import settings from '../settings';
 
 function renderHome () {
-  allContacts.fetch({
-    success: function (response) {
-      console.log(response);
-    }
-  });
   let $sideBar = $(`
     <aside>
       <ul class="contact-list">
@@ -19,6 +14,28 @@ function renderHome () {
     `);
   $('nav').show();
   $('.container').empty().append($sideBar);
+  allContacts.fetch({
+    success: function (response) {
+      response.forEach(function(contact){
+        let $contactListName = $(`
+          <li class="each-contact">
+            <ul>
+              <li class="name">${contact.get('name')}</li>
+              <li class="nickname">Nickname: ${contact.get('nickname')}</li>
+              <li class="email">Email: ${contact.get('email')}</li>
+              <li class="phone">Phone: ${contact.get('phone')}</li>
+            </ul>
+          </li>
+          `);
+        $('.contact-list').append($contactListName);
+      });
+    }
+  });
+  function renderSingleContact(evt) {
+    $('.container').empty().append($sideBar);
+    console.log(evt.target);
+  }
+  $('.each-contact').on('click', renderSingleContact);
 }
 
 export default renderHome;

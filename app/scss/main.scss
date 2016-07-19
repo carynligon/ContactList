@@ -1,0 +1,75 @@
+@import "../../node_modules/normalize-scss/sass/normalize/import-now";
+
+body {
+  font-family: avenir, sans-serif;
+}
+
+.login {
+  width: 50%;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.login-form {
+  text-align: center;
+  #username, #password {
+    width: 48%;
+  }
+  input[type="submit"] {
+    margin-top: 20px;
+    width: 30%;
+  }
+}
+
+#navigation {
+  padding: 0;
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 2%;
+  }
+  #add {
+    float: right;
+    margin-right: 2%;
+  }
+}
+
+.new-contact {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  #submit {
+    width: 60%;
+  }
+}
+
+aside {
+  width: 40%;
+  margin: 0 auto;
+  height: 70vh;
+  overflow: scroll;
+  border: 1px solid black;
+  box-sizing: border-box;
+  li {
+    list-style-type: none;
+  }
+}
+
+.contact-list {
+  padding: 0;
+}
+
+.each-contact {
+  border-bottom: 1px solid #f8f7f7;
+  padding: 0 0 8px 15px;
+  ul {
+    padding: 0;
+  }
+  .name {
+    font-size: 1.5rem;
+  }
+}

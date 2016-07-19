@@ -12,13 +12,10 @@ $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
     xhrAjax.setRequestHeader('Authorization', 'Basic ' + settings.basicAuth);
 
   }
-  console.log('ajax send function ', arguments);
 });
 
 Backbone.history.start();
-//
-// if (!session.username) {
-//   router.navigate('login', {trigger: true});
-// }
 
-console.log(settings);
+if (!session.username) {
+  router.navigate('login', {trigger: true});
+}

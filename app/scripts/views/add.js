@@ -21,7 +21,7 @@ function renderAddContact () {
       email: $('#email').val(),
       phone: $('#phone').val()
     });
-    console.log(allContacts);
+    router.navigate('home', {trigger: true});
   });
 }
 
