@@ -4,6 +4,8 @@ import Contact from '../models/contact';
 import store from './store';
 import _ from 'underscore';
 import settings from '../settings';
+import session from '../models/username';
+import router from '../router';
 
 function renderHome () {
   let $sideBar = $(`
@@ -36,6 +38,25 @@ function renderHome () {
     console.log(evt.target);
   }
   $('.each-contact').on('click', renderSingleContact);
+  $('#logout').on('click', function () {
+      $.ajax({
+        type: 'POST',
+        url: `https://baas.kinvey.com/user/${settings.appKey}/_logout`,
+        headers: {
+          Authorization: `Kinvey ${session.authtoken}`
+        },
+        contentType: 'application/json',
+        success: function(response){
+          sessionStorage.removeItem('session');
+          delete session.authtoken;
+          router.navigate('login', {trigger:true});
+          console.log('You logged out!');
+        },
+        error: function(){
+          console.log('Error');
+        }
+      });
+  });
 }
 
 export default renderHome;
