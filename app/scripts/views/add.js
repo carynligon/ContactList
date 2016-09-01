@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import allContacts from '../collections/contact-list';
 import Contact from '../models/contact';
+import router from '../router';
 
 function renderAddContact () {
   let $contactForm = $(`

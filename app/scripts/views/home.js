@@ -47,8 +47,9 @@ function renderHome () {
         },
         contentType: 'application/json',
         success: function(response){
-          sessionStorage.removeItem('session');
-          delete session.authtoken;
+          session.authtoken = '';
+          session.username = '';
+          console.log(session);
           router.navigate('login', {trigger:true});
           console.log('You logged out!');
         },
